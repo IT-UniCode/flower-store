@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const goodsSchema = new Schema({
-  goodsId: {
+  _id: {
     type: String,
     required: true,
   },

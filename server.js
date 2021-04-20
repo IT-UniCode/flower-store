@@ -2,7 +2,9 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import { config } from 'dotenv';
+
 import userRouter from './src/routes/user/index.js';
+import basketRouter from './src/routes/basket/index.js';
 import goodsRouter from './src/routes/goods/index.js';
 
 const app = express();
@@ -27,6 +29,7 @@ connection.once("open", () => {
 
 app.use('/goods', goodsRouter);
 app.use('/user', userRouter);
+app.use('/basket', basketRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);

@@ -9,7 +9,7 @@ export default function (req, res) {
     bcrypt.hash(req.body.password, saltRound, (err, hash) => {
       if (hash) {
         const newUser = new User({
-          userId: uuidV4(),
+          _id: uuidV4(),
           name: req.body.name,
           surname: req.body.surname,
           lastname: req.body.lastname,
@@ -17,7 +17,7 @@ export default function (req, res) {
           address: req.body.address,
           email: req.body.email,
           password: hash,
-          orders: [],
+          basket: req.body.basketId,
         })
 
         newUser.save()

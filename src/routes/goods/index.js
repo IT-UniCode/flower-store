@@ -41,13 +41,7 @@ const upload = multer({
 
 const router = Router();
 
-router.route("/").get((req, res) => {
-  getGoodsList(req, res);
-});
 
-router.route("/delete").post((req, res) => {
-  delAllGoods(req, res);
-});
 
 router.post("/add", upload.single("productImage"), (req, res) => {
   console.log(req.file);
@@ -66,6 +60,14 @@ router.post("/add", upload.single("productImage"), (req, res) => {
   newGoods.save()
     .then(() => res.json('Goods added!'))
     .catch(err => res.status(400).json(`Error: ${err}`));
+});
+
+router.route("/").get((req, res) => {
+  getGoodsList(req, res);
+});
+
+router.route("/delete").post((req, res) => {
+  delAllGoods(req, res);
 });
 
 export default router;

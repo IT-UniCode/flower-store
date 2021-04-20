@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  userId: {
+  _id: {
     type: String,
     required: true,
   },
@@ -41,8 +41,8 @@ const userSchema = new Schema({
     required: true,
     trim: true,
   },
-  orders: {
-    type: Array,
+  basket: {
+    type: String,
   },
 }, {
   timestamps: true,
