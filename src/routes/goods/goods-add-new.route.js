@@ -9,7 +9,7 @@ export default function (req, res) {
   imgur.uploadFile(req.file.path)
     .then((json) => {
       const newGoods = {
-        goodsId: uuidv4(),
+        id: uuidv4(),
         name: req.body.name,
         price: req.body.price,
         description: req.body.description,

@@ -1,7 +1,8 @@
 import { Router } from "express";
 
 import getGoodsList from "./goods-get-all.route.js";
-// import addNewGoods from './goods-add-new.route.js';
+import getGoodsById from "./goods-get-by-id.route.js";
+import addNewGoods from './goods-add-new.route.js';
 import delAllGoods from "./goods-del-all.route.js";
 
 import imgur from "imgur";
@@ -41,8 +42,6 @@ const upload = multer({
 
 const router = Router();
 
-
-
 router.post("/add", upload.single("productImage"), (req, res) => {
   console.log(req.file);
 
@@ -64,6 +63,10 @@ router.post("/add", upload.single("productImage"), (req, res) => {
 
 router.route("/").get((req, res) => {
   getGoodsList(req, res);
+});
+
+router.route("/:id").get((req, res) => {
+  getGoodsById(req, res);
 });
 
 router.route("/delete").post((req, res) => {
