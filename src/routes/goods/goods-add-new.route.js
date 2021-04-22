@@ -1,36 +1,29 @@
-import Goods from '../../models/goods/index.js';
-import imgur from 'imgur';
-import { v4 as uuidv4 } from 'uuid';
-import multer from 'multer';
+import imgur from "imgur";
+import { v4 as uuidv4 } from "uuid";
 
-const upload = multer({ dest: '/upload/' })
+import Goods from "../../models/goods/index.js";
+
 export default function (req, res) {
-
-  imgur.uploadFile(req.file.path)
+  imgur
+    .uploadFile(req.file.path)
     .then((json) => {
-      const newGoods = {
-        id: uuidv4(),
+      const newGoods = new Goods({
+        _id: uuidv4(),
         name: req.body.name,
         price: req.body.price,
         description: req.body.description,
         existence: req.body.existence,
         type: req.body.type,
-        tag: req.body.tag,
-        imagePath: json.link,
-      }
+        tags: req.body.tags,
+        goodsImage: json.link,
+      });
 
-      newGoods.save()
-        .then(() => res.json('Goods added!'))
-        .catch(err => res.status(400).json(`Error: ${err}`));
-
+      newGoods
+        .save()
+        .then(() => res.json("Goods added!"))
+        .catch((err) => res.status(400).json(`Error: ${err}`));
     })
     .catch((err) => {
       console.error(err.message);
     });
-
-
-  const newGoods = {
-
-  }
-
 }

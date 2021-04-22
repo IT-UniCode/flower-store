@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 const goodsSchema = new Schema({
   _id: {
     type: String,
-    required: true,
   },
   name: {
     type: String,
@@ -34,7 +33,7 @@ const goodsSchema = new Schema({
     type: Array,
     required: true,
   },
-  productImage: {
+  goodsImage: {
     type: String,
     required: true,
   },
