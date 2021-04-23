@@ -2,6 +2,7 @@ import { Router } from "express";
 
 import getGoodsList from "./goods-get-all.route.js";
 import getGoodsById from "./goods-get-by-id.route.js";
+import getGoodsByIdArray from "./goods-get-by-idArray.route.js";
 import addNewGoods from './goods-add-new.route.js';
 import delAllGoods from "./goods-del-all.route.js";
 import sortGoodsByOr from './goods-sort-by-oneParam.route.js';
@@ -21,6 +22,10 @@ router.route("/").get((req, res) => {
 
 router.route("/by-id/:id").get((req, res) => {
   getGoodsById(req, res);
+});
+
+router.route("/by-idArr").post((req, res) => {
+  getGoodsByIdArray(req, res);
 });
 
 router.route("/sort-or").post((req, res) => {

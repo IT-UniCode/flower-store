@@ -7,6 +7,7 @@ export default function (req, res) {
     userId: req.params.id,
     price: 0,
     comment: '',
+    address: req.body.address,
     orderDate: new Date(),
   });
 

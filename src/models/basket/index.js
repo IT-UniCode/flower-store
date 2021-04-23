@@ -20,6 +20,10 @@ const basketSchema = new Schema({
     type: String,
     trim: true,
   },
+  address: {
+    type: String,
+    trim: true,
+  },
   orderDate: {
     type: Date,
   },
