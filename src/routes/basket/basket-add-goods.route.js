@@ -3,6 +3,7 @@ import Basket from '../../models/basket/index.js';
 export default function (req, res) {
   Basket.findOne({ userId: req.params.id })
     .then(basket => {
+      console.log(basket);
       basket.goods.push(req.body.goodsId);
 
       basket.save()

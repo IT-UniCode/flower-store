@@ -18,7 +18,7 @@ const uri = config().parsed.ATLAS_URI;
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useFindAndModify: true,
+  useFindAndModify: false,
   useUnifiedTopology: true,
 });
 
