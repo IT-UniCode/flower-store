@@ -5,9 +5,15 @@ export default function (req, res) {
     .then((basket) => {
       for (let i = 0; i <= basket.goods.length; i++) {
         if (basket.goods[i]?.goodsId === req.body.goodsId) {
+          let count = basket.goods[i].count;
+          if (req.body.op === "+") {
+            count += 1;
+          } else if (req.body.op === "-" && count - 1 != 0) {
+            count -= 1;
+          }
           Basket.updateOne(
             { "goods.goodsId": req.body.goodsId },
-            { $set: { "goods.$.count": ++basket.goods[i].count } }
+            { $set: { "goods.$.count": count } }
           )
             .then((message) => res.json(message))
             .catch((error) => res.status(400).json(`Error ${error}`));
