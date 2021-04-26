@@ -30,7 +30,7 @@ router.route('/update/:id').post((req, res) => {
   updateBasket(req, res);
 });
 
-router.route('/add-goods/:id').post((req, res) => {
+router.route('/add-goods/:id').put((req, res) => {
   addGoodsToBasket(req, res);
 });
 
