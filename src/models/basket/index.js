@@ -27,6 +27,9 @@ const basketSchema = new Schema({
   orderDate: {
     type: Date,
   },
+  status: {
+    type: String,
+  }
 }, {
   timestamps: true,
 });

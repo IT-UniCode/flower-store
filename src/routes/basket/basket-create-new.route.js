@@ -9,6 +9,7 @@ export default function (req, res) {
     comment: '',
     address: req.body.address,
     orderDate: new Date(),
+    status: 'created'
   });
 
   newBasket.save()

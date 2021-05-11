@@ -1,7 +1,7 @@
 import Basket from '../../models/basket/index.js';
 
 export default function (req, res) {
-  Basket.findOneAndUpdate({ userId: req.params.id }, req.body)
+  Basket.findOneAndUpdate({ $and: [{ userId: req.params.id }, { status: 'created' }] }, req.body)
     .then(() => {
       res.json('Basket confirmated')
     })
