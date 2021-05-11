@@ -18,6 +18,7 @@ export default function (req, res) {
           email: req.body.email,
           password: hash,
           basket: req.body.basketId,
+          role: 'USER',
         })
 
         newUser.save()

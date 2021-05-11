@@ -44,6 +44,9 @@ const userSchema = new Schema({
   basket: {
     type: String,
   },
+  role: {
+    type: String,
+  }
 }, {
   timestamps: true,
 });

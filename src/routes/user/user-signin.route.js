@@ -21,7 +21,7 @@ export default function (req, res) {
           .then((isMatch) => {
             if (isMatch) {
               const token = jwt.sign(
-                { _id: savedUser._id },
+                { _id: savedUser._id, role: savedUser.role },
                 process.env.JWT_SECRET,
                 {
                   expiresIn: '1h',
