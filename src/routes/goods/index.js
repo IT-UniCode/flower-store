@@ -5,8 +5,8 @@ import getGoodsById from "./goods-get-by-id.route.js";
 import getGoodsByIdArray from "./goods-get-by-idArray.route.js";
 import addNewGoods from './goods-add-new.route.js';
 import delAllGoods from "./goods-del-all.route.js";
-import sortGoods from './goods-sort.route.js';
-import goodsPaginationRoute from "./goods-pagination.route.js";
+import filterGoods from './goods-filter.route.js';
+import getGoodsListPage from "./goods-get-page.route.js";
 
 import upload from '../../middleware/uploadImage.js';
 
@@ -28,8 +28,8 @@ router.route("/by-idArr").post((req, res) => {
   getGoodsByIdArray(req, res);
 });
 
-router.route("/sort").post((req, res) => {
-  sortGoods(req, res);
+router.route("/filter").post((req, res) => {
+  filterGoods(req, res);
 });
 
 router.route("/delete").delete((req, res) => {
@@ -37,7 +37,7 @@ router.route("/delete").delete((req, res) => {
 });
 
 router.route("/page").post((req, res) => {
-  goodsPaginationRoute(req, res);
+  getGoodsListPage(req, res);
 })
 
 export default router;

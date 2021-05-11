@@ -1,9 +1,18 @@
 import Goods from "../../models/goods/index.js";
 
 export default function (req, res) {
-  if (req.body.tags !== "" && req.body.type !== "") {
+  const tags = req.body.tags;
+  const type = req.body.type;
+
+  if (tags === "" && type === "") {
+    Goods.find()
+      .then((goods) => {
+        res.json(goods);
+      })
+      .catch((error) => res.status(400).json(`Error ${error}`));
+  } else if (tags !== "" && type !== "") {
     Goods.find({
-      $and: [{ type: req.body.type }, { tags: req.body.tags }],
+      $and: [{ type: type }, { tags: tags }],
     })
       .then((goods) => {
         res.json(goods);
@@ -11,7 +20,7 @@ export default function (req, res) {
       .catch((error) => res.status(400).json(`Error ${error}`));
   } else {
     Goods.find({
-      $or: [{ type: req.body.type }, { tags: req.body.tags }],
+      $or: [{ type: type }, { tags: tags }],
     })
       .then((goods) => {
         res.json(goods);
