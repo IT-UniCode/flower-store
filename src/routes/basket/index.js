@@ -31,7 +31,7 @@ router.route("/confirm/:id").post((req, res) => {
   confirmBasket(req, res);
 });
 
-router.route("/update-goods/:id").put((req, res) => {
+router.route("/update-goods/:id").patch((req, res) => {
   updateGoodsOnBasket(req, res);
 });
 
