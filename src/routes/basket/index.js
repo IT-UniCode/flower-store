@@ -3,6 +3,7 @@ import { Router } from "express";
 import getBasketById from "./basket-get-by-id.route.js";
 import getBasketByUserId from "./basket-get-by-userId.route.js";
 import getBasketList from "./basket-get-all.route.js";
+import getAdminBasketList from "./basket-get-to-admin.route.js";
 import createBasket from "./basket-create-new.route.js";
 import updateGoodsOnBasket from "./basket-update-goods.route.js";
 import deleteAllBasket from "./basket-del-all.route.js";
@@ -13,6 +14,10 @@ const router = Router();
 
 router.route("/").get((req, res) => {
   getBasketList(req, res);
+});
+
+router.route("/get-to-admin").get((req, res) => {
+  getAdminBasketList(req, res);
 });
 
 router.route("/:id").get((req, res) => {
