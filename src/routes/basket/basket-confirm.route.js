@@ -18,9 +18,9 @@ export default function (req, res) {
       const mailOptions = {
         from: 'maks.sapeyko22@gmail.com',
         to: 'maks.sapeyko@gmail.com, maks.sapeyko22@ukr.net',
-        subject: 'Testing and Testing',
+        subject: 'Flower Store',
         // html
-        text: 'IT Works',
+        text: 'Ваш заказ был принят',
       };
 
       transporter.sendMail(mailOptions, function (err, data) {

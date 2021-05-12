@@ -8,6 +8,8 @@ export default function (req, res) {
     price: 0,
     comment: '',
     address: req.body.address,
+    phone: req.body.phone,
+    fullName: req.body.fullName,
     orderDate: new Date(),
     status: 'created'
   });
