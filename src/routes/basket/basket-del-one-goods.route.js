@@ -2,7 +2,7 @@ import Basket from "../../models/basket/index.js";
 
 export default function (req, res) {
   Basket.findOneAndUpdate(
-    { userId: req.params.id },
+    { $and: [{ userId: req.params.id }, { status: 'created' }] },
     { $pull: { goods: { goodsId: req.body.goodsId } } }
   )
     .then((message) => res.json(message))
