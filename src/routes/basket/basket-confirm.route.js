@@ -1,5 +1,5 @@
 import Basket from '../../models/basket/index.js';
-import mailer from '../../middleware/mailer.js';
+import mailer from '../../services/mailer.js';
 
 export default function (req, res) {
   Basket.findOneAndUpdate(
