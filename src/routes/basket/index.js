@@ -9,6 +9,7 @@ import updateGoodsOnBasket from "./basket-update-goods.route.js";
 import deleteAllBasket from "./basket-del-all.route.js";
 import deleteOneGoodsFromBasket from "./basket-del-one-goods.route.js";
 import confirmBasket from "./basket-confirm.route.js";
+import updateBasketStatus from './basket-update-status.route.js';
 
 const router = Router();
 
@@ -42,6 +43,10 @@ router.route("/update-goods/:id").patch((req, res) => {
 
 router.route("/delete-goods/:id").patch((req, res) => {
   deleteOneGoodsFromBasket(req, res);
+});
+
+router.route("/update-status").patch((req, res) => {
+  updateBasketStatus(req, res);
 });
 
 router.route("/delete-all").post((req, res) => {
