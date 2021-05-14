@@ -1,9 +1,7 @@
 import Basket from '../../models/basket/index.js';
-import { v4 as uuidV4 } from 'uuid';
 
 export default function (req, res) {
   const newBasket = new Basket({
-    _id: uuidV4(),
     userId: req.params.id,
     price: 0,
     comment: '',
