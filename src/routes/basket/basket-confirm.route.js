@@ -9,7 +9,7 @@ export default function (req, res) {
     .then(() => {
       const date = new Date(req.body.orderDate).toLocaleDateString();
 
-      const html = `<h1>Ваш заказ отправлен менеджеру:</h1><table style='border: 1px solid #000'><thead><tr><th>ФИО</th><th>Телефон</th><th>Адрес доставки</th><th>Сумма заказа</th><th>Дата заказа</th><th>Статус</th></tr></thead><tbody><tr><td>${req.body.fullName}</td><td>${req.body.phone}</td><td>${req.body.address}</td><td>${req.body.price}грн.</td><td>${date}</td><td>В обработке</td></tr></tbody></table><p>Ожидайте наш менеджер свяжется с вами для подтверждения заказа </p>`;
+      const html = `<h1>Ваш заказ №${req.body.id} отправлен менеджеру:</h1><table style='border: 1px solid #000'><thead><tr><th>ФИО</th><th>Телефон</th><th>Адрес доставки</th><th>Сумма заказа</th><th>Дата заказа</th><th>Статус</th></tr></thead><tbody><tr><td>${req.body.fullName}</td><td>${req.body.phone}</td><td>${req.body.address}</td><td>${req.body.price}грн.</td><td>${date}</td><td>В обработке</td></tr></tbody></table><p>Ожидайте наш менеджер свяжется с вами для подтверждения заказа </p>`;
 
       const text = 'Ваш заказ был принят';
 
